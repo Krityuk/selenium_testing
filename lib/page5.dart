@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pradyot_harsh/global.dart';
+import 'package:pradyot_harsh/homepage.dart';
 import 'package:pradyot_harsh/nextpage.dart';
 
 class Page5 extends StatefulWidget {
@@ -46,7 +47,7 @@ class _Page5State extends State<Page5> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Image.asset(
-                  'assets/logo.png',
+                  'assets/pra.jpg',
                   width: 150,
                   height: 150,
                 ),
@@ -90,8 +91,13 @@ class _Page5State extends State<Page5> {
                       Global.updateLoginStatus(true);
                       nameController.clear();
                       phoneController.clear();
-                      showMyDialog(context, "Login Successful");
                       debugPrint('${Global.loginStatus}       😎😎');
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const MyHomePage()),
+                      );
+                      showMyDialog(context, "Login Successful");
                     }
                     // Login logic here
                     // Perform login operation with name and phone

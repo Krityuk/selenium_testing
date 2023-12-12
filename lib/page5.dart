@@ -32,8 +32,7 @@ class _Page5State extends State<Page5> {
         width: double.maxFinite,
         decoration: const BoxDecoration(
           image: DecorationImage(
-            image:
-                AssetImage('assets/back2.jpg'), // Replace with your image path
+            image: AssetImage('assets/back2.jpg'),
             fit: BoxFit.cover,
           ),
         ),
@@ -55,7 +54,7 @@ class _Page5State extends State<Page5> {
                 TextField(
                   controller: nameController,
                   decoration: InputDecoration(
-                    hintText: 'Enter UserName',
+                    labelText: 'Enter UserName',
                     fillColor: Colors.white,
                     filled: true,
                     border: OutlineInputBorder(

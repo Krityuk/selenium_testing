@@ -10,27 +10,39 @@ class Page1 extends StatefulWidget {
 }
 
 class _Page1State extends State<Page1> {
-  String selectedDestination = 'Destination';
-  String selectedInitialAddress = 'Initial Address';
+  String selectedDestination = 'Select Destination';
+  String selectedInitialAddress = 'Select Curr Location';
 
   final List<String> destinations = [
-    'Destination 1',
-    'Destination 2',
-    'Destination 3'
+    'Select Destination',
+    'Ranchi',
+    'New Delhi',
+    'Mumbai',
+    'Diu',
+    'Amd',
+    'Ujjain'
   ];
-  final List<String> initialAddresses = ['Address 1', 'Address 2', 'Address 3'];
-  TextEditingController destinationController = TextEditingController();
-  TextEditingController sourceController = TextEditingController();
-  TextEditingController priceController = TextEditingController();
+  final List<String> initialAddresses = [
+    'Select Curr Location',
+    'Ranchi',
+    'Ujjain',
+    'New Delhi',
+    'Mumbai',
+    'Diu',
+    'Amd'
+  ];
 
-  @override
-  void dispose() {
-    // Clean up the controllers when the widget is disposed
-    destinationController.dispose();
-    sourceController.dispose();
-    priceController.dispose();
-    super.dispose();
-  }
+  //
+  // TextEditingController destinationController = TextEditingController();
+  // TextEditingController sourceController = TextEditingController();
+
+  // @override
+  // void dispose() {
+  //   // Clean up the controllers when the widget is disposed
+  //   destinationController.dispose();
+  //   sourceController.dispose();
+  //   super.dispose();
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -62,35 +74,63 @@ class _Page1State extends State<Page1> {
                       height: 150,
                     ),
                     const SizedBox(height: 30),
-                    TextField(
-                      controller: destinationController,
-                      onChanged: (value) {
-                        Global.destination = value;
-                      },
-                      decoration: InputDecoration(
-                        labelText: 'Enter Destination',
-                        fillColor: Colors.white,
-                        filled: true,
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10.0),
-                        ),
-                      ),
-                    ),
+                    DropdownButton(
+                        value: selectedInitialAddress,
+                        items: initialAddresses
+                            .map((e) => DropdownMenuItem(
+                                  value: e,
+                                  child: Text(e),
+                                ))
+                            .toList(),
+                        onChanged: (value) {
+                          setState(() {
+                            selectedInitialAddress = value.toString();
+                            Global.currentLocation = selectedInitialAddress;
+                          });
+                        }),
+                    DropdownButton(
+                        value: selectedDestination,
+                        items: destinations
+                            .map((e) => DropdownMenuItem(
+                                  value: e,
+                                  child: Text(e),
+                                ))
+                            .toList(),
+                        onChanged: (value) {
+                          setState(() {
+                            selectedDestination = value.toString();
+                            Global.destination = selectedDestination;
+                          });
+                        }),
                     const SizedBox(height: 16),
-                    TextField(
-                      controller: sourceController,
-                      onChanged: (value) {
-                        Global.currentLocation = value;
-                      },
-                      decoration: InputDecoration(
-                        labelText: 'Enter Source',
-                        fillColor: Colors.white,
-                        filled: true,
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10.0),
-                        ),
-                      ),
-                    ),
+                    // TextField(
+                    //   controller: destinationController,
+                    //   onChanged: (value) {
+                    //     Global.destination = value;
+                    //   },
+                    //   decoration: InputDecoration(
+                    //     labelText: 'Enter Destination',
+                    //     fillColor: Colors.white,
+                    //     filled: true,
+                    //     border: OutlineInputBorder(
+                    //       borderRadius: BorderRadius.circular(10.0),
+                    //     ),
+                    //   ),
+                    // ),
+                    // TextField(
+                    //   controller: sourceController,
+                    //   onChanged: (value) {
+                    //     Global.currentLocation = value;
+                    //   },
+                    //   decoration: InputDecoration(
+                    //     labelText: 'Enter Source',
+                    //     fillColor: Colors.white,
+                    //     filled: true,
+                    //     border: OutlineInputBorder(
+                    //       borderRadius: BorderRadius.circular(10.0),
+                    //     ),
+                    //   ),
+                    // ),
                     const SizedBox(height: 20),
                     ElevatedButton(
                       onPressed: () {
@@ -98,13 +138,25 @@ class _Page1State extends State<Page1> {
                         // if (Global.loginStatus == false) {
                         //   showMyDialog(context, "Please Do Login First");
                         // } else
-                        if (sourceController.text == "" ||
-                            destinationController.text == "") {
-                          showMyDialog(context, "Please fill above Details");
+                        // if (sourceController.text == "" ||
+                        //     destinationController.text == "") {
+                        //   showMyDialog(context, "Please fill above Details");
+                        // }
+                        // else {
+                        // Button on pressed logic here
+                        // sourceController.clear();
+                        // destinationController.clear();
+                        // Navigator.push(
+                        //   context,
+                        //   MaterialPageRoute(
+                        //       builder: (context) => const NextPage()),
+                        // );
+                        // }
+
+                        if (selectedInitialAddress == "Select Address" ||
+                            selectedDestination == "Select Destination") {
+                          showMyDialog(context, "Please select above details");
                         } else {
-                          // Button on pressed logic here
-                          sourceController.clear();
-                          destinationController.clear();
                           Navigator.push(
                             context,
                             MaterialPageRoute(

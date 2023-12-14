@@ -5,7 +5,7 @@ import 'package:pradyot_harsh/main.dart';
 import 'package:pradyot_harsh/page1.dart';
 import 'package:pradyot_harsh/page5.dart';
 
-import 'global.dart';
+
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});
@@ -25,21 +25,21 @@ class _MyHomePageState extends State<MyHomePage> {
     const Page5(),
   ];
 
-  int counter = 0;
-  late Timer timer;
+  // int counter = 0;
+  // late Timer timer;
 
-  @override
-  void initState() {
-    super.initState();
-    timer = Timer.periodic(const Duration(seconds: 1), (Timer t) {
-      // This function will be called every 3 seconds
-      setState(() {
-        counter++; // Increment counter
-      });
-      // Print text to the console
-      debugPrint('Printed text at interval: $counter = ${Global.loginStatus}');
-    });
-  }
+  // @override
+  // void initState() {
+  //   super.initState();
+  //   timer = Timer.periodic(const Duration(seconds: 1), (Timer t) {
+  //     // This function will be called every 3 seconds
+  //     setState(() {
+  //       counter++; // Increment counter
+  //     });
+  //     // Print text to the console
+  //     debugPrint('Printed text at interval: $counter = ${Global.loginStatus}');
+  //   });
+  // }
 
   @override
   Widget build(BuildContext context) {

@@ -152,10 +152,13 @@ class _Page1State extends State<Page1> {
                         //       builder: (context) => const NextPage()),
                         // );
                         // }
-
-                        if (selectedInitialAddress == "Select Address" ||
+                        if (Global.loginStatus == false) {
+                          showMyDialog(context, "Please Do Login First");
+                          //
+                        } else if (selectedInitialAddress == "Select Address" ||
                             selectedDestination == "Select Destination") {
                           showMyDialog(context, "Please select above details");
+                          //
                         } else {
                           Navigator.push(
                             context,
@@ -171,9 +174,8 @@ class _Page1State extends State<Page1> {
               ),
               ElevatedButton(
                   onPressed: () {
-                    showMyDialog(context, "log Out done");
-                    // Global.updateLoginStatus(false);
                     Global.loginStatus = false;
+                    showMyDialog(context, "log Out done");
                   },
                   child: const Text('Log Out'))
             ],

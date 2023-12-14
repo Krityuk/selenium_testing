@@ -67,7 +67,8 @@ class _Page5State extends State<Page5> {
                   controller: phoneController,
                   keyboardType: TextInputType.phone,
                   decoration: InputDecoration(
-                    hintText: 'Enter Password',
+                    labelText: 'Enter Password',
+                    hintText: "Enter Passwd",
                     fillColor: Colors.white,
                     filled: true,
                     border: OutlineInputBorder(
@@ -87,7 +88,7 @@ class _Page5State extends State<Page5> {
                     } else {
                       // Button on pressed logic here
                       Global.loginStatus = true;
-                      Global.updateLoginStatus(true);
+                      // Global.updateLoginStatus(true);
                       nameController.clear();
                       phoneController.clear();
                       debugPrint('${Global.loginStatus}       😎😎');

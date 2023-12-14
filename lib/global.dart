@@ -9,9 +9,9 @@ class Global {
   static String pswd = "Pradyot";
   static bool loginStatus = false;
 
-  static updateLoginStatus(bool status) {
-    Global.loginStatus = status;
-  }
+  // static updateLoginStatus(bool status) {
+  //   Global.loginStatus = status;
+  // }
 
   static String calculatePrice() {
     // Assuming price calculation based on distance and car type

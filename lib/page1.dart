@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pradyot_harsh/GLobal.dart';
+import 'package:pradyot_harsh/global.dart';
 import 'package:pradyot_harsh/nextpage.dart';
 
 class Page1 extends StatefulWidget {
@@ -10,9 +10,9 @@ class Page1 extends StatefulWidget {
 }
 
 class _Page1State extends State<Page1> {
-  String selectedDestination = 'Select Destination';
   String selectedInitialAddress = 'Select Curr Location';
 
+  String selectedDestination = 'Select Destination';
   final List<String> destinations = [
     'Select Destination',
     'Ranchi',

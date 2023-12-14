@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:pradyot_harsh/GLobal.dart';
+import 'package:pradyot_harsh/global.dart';
+
 
 class NextPage extends StatefulWidget {
   const NextPage({Key? key}) : super(key: key);
